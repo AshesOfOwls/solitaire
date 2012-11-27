@@ -1,0 +1,134 @@
+* {
+    -moz-user-select:none;
+}
+
+body {
+	background-color: #13151c;
+	padding: 20px;
+	margin: 0px;
+}
+
+#gameBoard {
+	width: 806px;
+	height: 700px;
+	border: 1px solid #376CB5;
+	position: relative;
+	z-index: -1;
+}
+
+.front {
+	width: 98px;
+	height: 131px;
+	position: absolute;
+	border: 1px solid #376CB5;
+	font-size: 20px;
+	font-weight: bold;
+	z-index: 10;
+}
+
+.diamond {
+	background-image: url('../images/diamond.jpg');
+	color: red;
+}
+
+.heart {
+	background-image: url('../images/heart.jpg');
+	color: red;
+}
+
+.spade {
+	background-image: url('../images/spade.jpg');
+}
+
+.clover {
+	background-image: url('../images/clover.jpg');
+}
+
+.back {
+	width: 98px;
+	height: 131px;
+	position: absolute;
+	border: 1px solid #376CB5;
+	background-image: url('../images/back.jpg');
+	font-size: 0px;
+	z-index: 10;
+}
+
+/* The card zones (The Border Zones + the Reset button) */
+
+.cardZone {
+	border: 1px solid #376CB5;
+	width: 98px;
+	height: 131px;
+	position: absolute;
+	z-index: 1;
+}
+
+#zone1 {
+	background-image: url('../images/reset.jpg');
+}
+
+.zone1 {
+	left: 35px;
+	top: 35px;
+}
+
+.zone2 {
+	left: 148px;
+	top: 35px;
+}
+
+.zone3 {
+	left: 374px;
+	top: 35px;
+}
+
+.zone4 {
+	left: 487px;
+	top: 35px;
+}
+
+.zone5 {
+	left: 600px;
+	top: 35px;
+}
+
+.zone6 {
+	left: 713px;
+	top: 35px;
+}
+
+.zone7 {
+	left: 35px;
+	top: 182px;
+}
+
+.zone8 {
+	left: 148px;
+	top: 182px;
+}
+
+.zone9 {
+	left: 261px;
+	top: 182px;
+}
+
+.zone10 {
+	left: 374px;
+	top: 182px;
+}
+
+.zone11 {
+	left: 487px;
+	top: 182px;
+}
+
+.zone12 {
+	left: 600px;
+	top: 182px;
+}
+
+.zone13 {
+	left: 713px;
+	top: 182px;
+}

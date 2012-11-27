@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Solitaire</title>
+	<link type="text/css" rel="stylesheet" href="css/css.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/dom-drag.js"></script>
+	<script type="text/javascript" src="js/generateCards.js"></script>
+	<script type="text/javascript" src="js/setup.js"></script>
+</head>
+<body>
+
+<div id="gameBoard">
+</div>
+
+
+
+<script>
+generateZones();
+
+//---- Deal Cards ----//
+
+// Deal the Deck
+for(i=0;i<24;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="back zone1 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	//Setup Click Event
+	$('#card'+i).attr('onclick','moveToPile(this.id);createDrag(this.id,2,'+suit+');');
+}
+
+for(i=24;i<25;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="front zone7 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	createDrag('card'+i,7,suit);
+}
+
+for(i=25;i<26;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="back zone8 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	//Setup Click Event
+	$('#card'+i).attr('onclick','flipCard(this.id,8)');
+}
+
+for(i=26;i<27;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="front zone8 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	createDrag('card'+i,8,suit);
+}
+
+for(i=27;i<29;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="back zone9 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	//Setup Click Event
+	$('#card'+i).attr('onclick','flipCard(this.id,9)');
+}
+
+for(i=29;i<30;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="front zone9 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	createDrag('card'+i,9,suit);
+}
+
+for(i=30;i<33;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="back zone10 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	//Setup Click Event
+	$('#card'+i).attr('onclick','flipCard(this.id,10)');
+}
+
+for(i=33;i<34;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="front zone10 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	createDrag('card'+i,10,suit);
+}
+
+for(i=34;i<38;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="back zone11 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	//Setup Click Event
+	$('#card'+i).attr('onclick','flipCard(this.id,11)');
+}
+
+for(i=38;i<39;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="front zone11 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	createDrag('card'+i,11,suit);
+}
+
+for(i=39;i<44;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="back zone12 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	//Setup Click Event
+	$('#card'+i).attr('onclick','flipCard(this.id,12)');
+}
+
+for(i=44;i<45;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="front zone12 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	createDrag('card'+i,12,suit);
+}
+
+for(i=45;i<51;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="back zone13 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	//Setup Click Event
+	$('#card'+i).attr('onclick','flipCard(this.id,13)');
+}
+
+for(i=51;i<52;i++) {
+	var number = deck[i][1];
+	var suit = deck[i][2];
+	if(number == 11) {
+		number = "J";
+	} else if(number == 12) {
+		number = "Q";
+	} else if(number == 13) {
+		number = "K";
+	} else if(number == 14) {
+		number = "A";
+	}
+	document.write('<div id="card'+i+'" class="front zone13 '+suit+'">'+number+'</div>');
+	zIndex(i);
+	
+	createDrag('card'+i,13,suit);
+}
+
+</script>
+
+</body>
+</html>
